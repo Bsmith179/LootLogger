@@ -88,6 +88,7 @@
                                     <outlet property="nameLabel" destination="wnO-tg-f13" id="xqv-gM-hi0"/>
                                     <outlet property="serialNumberLabel" destination="bIM-PV-1GA" id="LFV-3A-6jK"/>
                                     <outlet property="valueLabel" destination="jDi-M5-dEh" id="IY4-wc-3Po"/>
+                                    <segue destination="Npa-JJ-xn5" kind="show" id="leQ-7c-JPw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -106,11 +107,11 @@
             <objects>
                 <viewController id="Npa-JJ-xn5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pa3-E6-82A">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GI6-nV-FNQ">
-                                <rect key="frame" x="8" y="126" width="377" height="650"/>
+                                <rect key="frame" x="8" y="67" width="377" height="718"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ngB-0e-0Yi">
                                         <rect key="frame" x="0.0" y="0.0" width="377" height="34"/>
@@ -161,7 +162,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-yY-wzu">
-                                        <rect key="frame" x="0.0" y="126" width="377" height="524"/>
+                                        <rect key="frame" x="0.0" y="126" width="377" height="592"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -183,6 +184,7 @@
                             <constraint firstItem="GI6-nV-FNQ" firstAttribute="top" secondItem="YLC-pg-IGi" secondAttribute="top" constant="8" id="uSC-Yf-Mrg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cP2-Yl-w4u"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4G-8H-OKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
