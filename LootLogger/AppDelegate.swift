@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
 //  LootLogger
-//
-//  Created by Icy on 4/21/26.
+//  App that shows the user an inventory of items for sale.
+//  Created by Brigitte on 4/21/26.
 //
 
 import UIKit

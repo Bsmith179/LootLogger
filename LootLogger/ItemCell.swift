@@ -1,7 +1,7 @@
 //
 //  ItemCell.swift
 //  LootLogger
-//
+//  App that shows the user an inventory of items for sale.
 //  Created by Brigitte on 4/23/26.
 //
 
