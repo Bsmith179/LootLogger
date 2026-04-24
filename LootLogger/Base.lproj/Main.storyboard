@@ -3,12 +3,13 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Items View Controller-->
+        <!--LootLogger-->
         <scene sceneID="m6J-rq-qIV">
             <objects>
                 <tableViewController id="sMs-sN-0Ix" customClass="ItemsViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,40 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="EJm-2c-BCS">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48h-1E-Zr0">
-                                    <rect key="frame" x="8" y="12.666666666666664" width="184.66666666666666" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Edit"/>
-                                    <connections>
-                                        <action selector="toggleEditingMode:" destination="sMs-sN-0Ix" eventType="touchUpInside" id="3pO-Id-1kb"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddE-Wq-DzC">
-                                    <rect key="frame" x="200.66666666666663" y="12.666666666666664" width="184.33333333333337" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
-                                    <connections>
-                                        <action selector="addNewItem:" destination="sMs-sN-0Ix" eventType="touchUpInside" id="zf6-Qx-IwR"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="ddE-Wq-DzC" secondAttribute="trailing" constant="8" id="Lk3-aS-JfF"/>
-                                <constraint firstItem="ddE-Wq-DzC" firstAttribute="leading" secondItem="48h-1E-Zr0" secondAttribute="trailing" constant="8" id="MrK-vZ-bIR"/>
-                                <constraint firstItem="48h-1E-Zr0" firstAttribute="leading" secondItem="EJm-2c-BCS" secondAttribute="leading" constant="8" id="Ylt-xH-wYb"/>
-                                <constraint firstItem="ddE-Wq-DzC" firstAttribute="centerY" secondItem="EJm-2c-BCS" secondAttribute="centerY" id="a4L-mo-3D1"/>
-                                <constraint firstItem="48h-1E-Zr0" firstAttribute="centerY" secondItem="EJm-2c-BCS" secondAttribute="centerY" id="ggr-j4-vMl"/>
-                                <constraint firstItem="ddE-Wq-DzC" firstAttribute="width" secondItem="48h-1E-Zr0" secondAttribute="width" id="q6Q-o1-TfH"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="fww-RX-xbW" customClass="ItemCell" customModule="LootLogger" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="110" width="393" height="65"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fww-RX-xbW" id="VDh-CP-pea">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
@@ -97,7 +67,15 @@
                             <outlet property="delegate" destination="sMs-sN-0Ix" id="7e7-6L-Kep"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="keq-GL-fEk"/>
+                    <navigationItem key="navigationItem" title="LootLogger" id="keq-GL-fEk">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="bAj-Nn-9RR"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="GJL-zo-bqR">
+                            <imageReference key="image" image="plus.app" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <action selector="addNewItem:" destination="sMs-sN-0Ix" id="g23-DP-Kyi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rW8-sO-t4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,6 +105,9 @@
                                                 <rect key="frame" x="53" y="0.0" width="324" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Npa-JJ-xn5" id="UO5-cx-ucS"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -143,6 +124,9 @@
                                                 <rect key="frame" x="53" y="0.0" width="324" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Npa-JJ-xn5" id="Whk-tf-Sxg"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -159,6 +143,9 @@
                                                 <rect key="frame" x="53" y="0.0" width="324" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Npa-JJ-xn5" id="z4T-AG-STT"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -178,12 +165,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YLC-pg-IGi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GI6-nV-FNQ" firstAttribute="leading" secondItem="YLC-pg-IGi" secondAttribute="leading" constant="8" id="NYo-xV-ko4"/>
                             <constraint firstItem="YLC-pg-IGi" firstAttribute="trailing" secondItem="GI6-nV-FNQ" secondAttribute="trailing" constant="8" id="dnV-xj-XHB"/>
                             <constraint firstItem="YLC-pg-IGi" firstAttribute="bottom" secondItem="GI6-nV-FNQ" secondAttribute="bottom" constant="8" id="efU-cP-Cab"/>
                             <constraint firstItem="GI6-nV-FNQ" firstAttribute="top" secondItem="YLC-pg-IGi" secondAttribute="top" constant="8" id="uSC-Yf-Mrg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9hV-S0-nfj" appends="YES" id="CIz-ks-e1S"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="cP2-Yl-w4u"/>
                     <connections>
@@ -194,6 +185,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4G-8H-OKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9hV-S0-nfj">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="Npa-JJ-xn5" id="5aa-hc-LiK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1646.5648854961833" y="73.943661971830991"/>
         </scene>
@@ -217,6 +213,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
